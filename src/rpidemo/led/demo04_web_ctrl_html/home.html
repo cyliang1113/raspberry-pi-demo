@@ -5,17 +5,27 @@
     <title>Home</title>
 </head>
 <body>
+    <script type="javascript">
+        function minus() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange=function(){
+                if(xhttp.readyState == 4){
+                    alert(xhttp.responseText); //得到字符串
+                }
+            };
+
+            xhttp.open("GET","minus", true);
+            xhttp.send();
+
+        }
+    </script>
+
     <div>LED</div>
     <br/>
     <div>
-<!--        <form action="/minus">-->
-<!--            <input type="submit" value="-">-->
-<!--        </form>-->
-<!--        <form action="/add">-->
-<!--            <input type="submit" value="+">-->
-<!--        </form>-->
-        <a href="minus">-</a><p>  </p>
-        <a href="add">+</a>
+        <button type="button" onclick="minus()">-</button>
+
     </div>
 </body>
 </html>
+
