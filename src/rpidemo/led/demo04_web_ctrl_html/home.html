@@ -8,13 +8,23 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange=function(){
                 if(xhttp.readyState == 4){
-                    alert(xhttp.responseText); //得到字符串
+                    console.info(xhttp.responseText); //得到字符串
                 }
             };
 
             xhttp.open("GET","minus", true);
             xhttp.send();
+        }
+        function add() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange=function(){
+                if(xhttp.readyState == 4){
+                    console.info(xhttp.responseText); //得到字符串
+                }
+            };
 
+            xhttp.open("GET","add", true);
+            xhttp.send();
         }
     </script>
 </head>
@@ -25,6 +35,7 @@
     <br/>
     <div>
         <button type="button" onclick="minus()">-</button>
+        <button type="button" onclick="minus()">+</button>
     </div>
 </body>
 </html>

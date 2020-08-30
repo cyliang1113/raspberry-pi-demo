@@ -31,7 +31,7 @@ def page():
 @route('/add')
 def page():
     add()
-    return static_file("home.html", root='./demo04_web_ctrl_html/')
+    return "ok"
 
 @route('/minus')
 def page():
