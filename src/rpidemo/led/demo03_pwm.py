@@ -1,7 +1,4 @@
 import RPi.GPIO as GPIO  # 导入模块
-import time
-
-
 
 GPIO.setmode(GPIO.BCM)  # 设置gpio引脚编号编码(BCM, BOARD) gpio.jpg
 pin = 18  # 18号引脚
