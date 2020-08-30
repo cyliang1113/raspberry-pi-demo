@@ -36,6 +36,6 @@ def page():
 @route('/minus')
 def page():
     minus()
-    return static_file("home.html", root='./demo04_web_ctrl_html/')
+    return "ok"
 
 run(host='0.0.0.0', port=8080)
