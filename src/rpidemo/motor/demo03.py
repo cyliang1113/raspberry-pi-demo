@@ -14,7 +14,7 @@ GPIO.setup(pin13_ena, GPIO.OUT)
 pwm = GPIO.PWM(pin13_ena, 500)
 try:
     duty = input("输入(0 - 100): ")
-    pwm.start(duty)
+    pwm.start(int(duty))
     GPIO.output(pin26_in1, True)
     GPIO.output(pin19_in2, False)
     time.sleep(1)
