@@ -6,7 +6,7 @@ import time
 GPIO.setmode(GPIO.BCM)  # 设置gpio引脚编号编码(BCM, BOARD) gpio.jpg
 pin26_in1 = 26;
 pin19_in2 = 19;
-pin13_ena = 19;
+pin13_ena = 13;
 GPIO.setup(pin26_in1, GPIO.OUT)
 GPIO.setup(pin19_in2, GPIO.OUT)
 GPIO.setup(pin13_ena, GPIO.OUT)
