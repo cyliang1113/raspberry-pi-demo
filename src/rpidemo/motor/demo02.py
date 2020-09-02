@@ -17,7 +17,6 @@ try:
     while True:
         GPIO.output(pin26_in1, True)
         GPIO.output(pin19_in2, False)
-        time.sleep(2)
         duty = input("输入(0 - 100): ")
         pwm.ChangeDutyCycle(int(duty))
 finally:
