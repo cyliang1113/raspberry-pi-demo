@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from .motor_car_fwd import FWD
+from rpidemo.motor_car.motor_car_fwd import FWD
 import time
 
 pin_left_motor_en = 13
