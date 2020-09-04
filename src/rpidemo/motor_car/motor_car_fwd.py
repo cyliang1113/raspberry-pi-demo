@@ -10,45 +10,31 @@ import RPi.GPIO as GPIO
 
 class FWD(object):
 
-    __status = 0  # 状态 0-停止, 1-工作
-
-    __pwd_left_motor_en = 0
-    __pin_left_motor_en = 0
-    __pin_left_motor_in1 = 0
-    __pin_left_motor_in2 = 0
-
-    __pwd_right_motor_en = 0
-    __pin_right_motor_en = 0
-    __pin_right_motor_in1 = 0
-    __pin_right_motor_in2 = 0
-
     # 初始化, 输入引脚标号, GPIO.BCM模式
     def __init__(self, pin_left_motor_en, pin_left_motor_in1, pin_left_motor_in2,
                  pin_right_motor_en, pin_right_motor_in1, pin_right_motor_in2):
+        self.__status = 0 # 状态 0-停止, 1-工作
         self.__pin_left_motor_en = pin_left_motor_en
         self.__pin_left_motor_in1 = pin_left_motor_in1
         self.__pin_left_motor_in2 = pin_left_motor_in2
-
-        self.__pin_right_motor_en = pin_right_motor_en
-        self.__pin_right_motor_in1 = pin_right_motor_in1
-        self.__pin_right_motor_in2 = pin_right_motor_in2
-
-    # 发动
-    def launch(self):
-        self.__status = 1
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.__pin_left_motor_en, GPIO.OUT)
         GPIO.setup(self.__pin_left_motor_in1, GPIO.OUT)
         GPIO.setup(self.__pin_left_motor_in2, GPIO.OUT)
+        self.__pwd_left_motor_en = GPIO.PWM(self.__pin_left_motor_en, 500)
 
+        self.__pin_right_motor_en = pin_right_motor_en
+        self.__pin_right_motor_in1 = pin_right_motor_in1
+        self.__pin_right_motor_in2 = pin_right_motor_in2
         GPIO.setup(self.__pin_right_motor_en, GPIO.OUT)
         GPIO.setup(self.__pin_right_motor_in1, GPIO.OUT)
         GPIO.setup(self.__pin_right_motor_in2, GPIO.OUT)
-
-        self.__pwd_left_motor_en = GPIO.PWM(self.__pin_left_motor_en, 500)
-        self.__pwd_left_motor_en.start(0)
-
         self.__pwd_right_motor_en = GPIO.PWM(self.__pin_right_motor_en, 500)
+
+    # 发动
+    def launch(self):
+        self.__status = 1
+        self.__pwd_left_motor_en.start(0)
         self.__pwd_right_motor_en.start(0)
 
     # 向前
