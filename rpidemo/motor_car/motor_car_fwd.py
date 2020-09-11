@@ -14,10 +14,11 @@ class FWD(object):
     def __init__(self, pin_left_motor_en, pin_left_motor_in1, pin_left_motor_in2,
                  pin_right_motor_en, pin_right_motor_in1, pin_right_motor_in2):
         self.__status = 0 # 状态 0-停止, 1-工作
+        GPIO.setmode(GPIO.BCM)
+
         self.__pin_left_motor_en = pin_left_motor_en
         self.__pin_left_motor_in1 = pin_left_motor_in1
         self.__pin_left_motor_in2 = pin_left_motor_in2
-        GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.__pin_left_motor_en, GPIO.OUT)
         GPIO.setup(self.__pin_left_motor_in1, GPIO.OUT)
         GPIO.setup(self.__pin_left_motor_in2, GPIO.OUT)
