@@ -48,6 +48,16 @@ class FWD(object):
         GPIO.output(self.__pin_right_motor_in1, True)
         GPIO.output(self.__pin_right_motor_in2, False)
 
+    # 向后
+    def back(self):
+        self.__pwd_left_motor_en.ChangeDutyCycle(100)
+        GPIO.output(self.__pin_left_motor_in1, False)
+        GPIO.output(self.__pin_left_motor_in2, True)
+
+        self.__pwd_right_motor_en.ChangeDutyCycle(100)
+        GPIO.output(self.__pin_right_motor_in1, False)
+        GPIO.output(self.__pin_right_motor_in2, True)
+
     # 向左
     def left(self):
         self.__pwd_left_motor_en.ChangeDutyCycle(0)
