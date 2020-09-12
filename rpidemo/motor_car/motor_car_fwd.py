@@ -64,9 +64,9 @@ class FWD(object):
         GPIO.output(self.__pin_left_motor_in1, True)
         GPIO.output(self.__pin_left_motor_in2, False)
 
-        self.__pwd_right_motor_en.ChangeDutyCycle(0)
+        self.__pwd_right_motor_en.ChangeDutyCycle(100)
         GPIO.output(self.__pin_right_motor_in1, False)
-        GPIO.output(self.__pin_right_motor_in2, False)
+        GPIO.output(self.__pin_right_motor_in2, True)
 
     # 刹车
     def brake(self):
