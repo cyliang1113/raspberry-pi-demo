@@ -60,7 +60,7 @@ class FWD(object):
 
     # 向右
     def right(self):
-        self.__pwd_left_motor_en.ChangeDutyCycle(60)
+        self.__pwd_left_motor_en.ChangeDutyCycle(100)
         GPIO.output(self.__pin_left_motor_in1, True)
         GPIO.output(self.__pin_left_motor_in2, False)
 
