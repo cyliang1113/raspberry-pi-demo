@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;"  />
+    <title>Home</title>
+    <script type="text/javascript">
+        function forward() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange=function(){
+                if(xhttp.readyState == 4){
+                    console.info(xhttp.responseText); //得到字符串
+                }
+            };
+
+            xhttp.open("GET","forward", true);
+            xhttp.send();
+        }
+        function back() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange=function(){
+                if(xhttp.readyState == 4){
+                    console.info(xhttp.responseText); //得到字符串
+                }
+            };
+
+            xhttp.open("GET","back", true);
+            xhttp.send();
+        }
+    </script>
+</head>
+<body>
+
+
+    <div>LED</div>
+    <br/>
+    <div>
+        <button type="button" style="width: 100px; height: 50px;" onclick="forward()">向前</button>
+        <button type="button" style="width: 100px; height: 50px;" onclick="back()">向后</button>
+    </div>
+</body>
+</html>
+
