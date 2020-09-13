@@ -2,29 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;"  />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
     <title>Home</title>
     <script type="text/javascript">
         function forward() {
             var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange=function(){
-                if(xhttp.readyState == 4){
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4) {
                     console.info(xhttp.responseText); //得到字符串
                 }
             };
 
-            xhttp.open("GET","forward", true);
+            xhttp.open("GET", "forward", true);
             xhttp.send();
         }
+
         function back() {
             var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange=function(){
-                if(xhttp.readyState == 4){
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4) {
                     console.info(xhttp.responseText); //得到字符串
                 }
             };
 
-            xhttp.open("GET","back", true);
+            xhttp.open("GET", "back", true);
+            xhttp.send();
+        }
+
+        function op(direction) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4) {
+                    console.info(xhttp.responseText); //得到字符串
+                }
+            };
+
+            xhttp.open("GET", direction, true);
             xhttp.send();
         }
     </script>
@@ -32,12 +45,21 @@
 <body>
 
 
-    <div>LED</div>
+<div>小车</div>
+<br/>
+<div>
+    <button type="button" style="width: 100px; height: 50px; margin-left: 50px;" onclick="op('forward')">前</button>
     <br/>
-    <div>
-        <button type="button" style="width: 100px; height: 50px;" onclick="forward()">向前</button>
-        <button type="button" style="width: 100px; height: 50px;" onclick="back()">向后</button>
-    </div>
+    <br/>
+    <button type="button" style="width: 100px; height: 50px;" onclick="op('left')">左</button>
+    <button type="button" style="width: 100px; height: 50px;" onclick="op('right')">右</button>
+    <br/>
+    <br/>
+    <button type="button" style="width: 100px; height: 50px; margin-left: 50px;" onclick="op('back')">后</button>
+    <br/>
+    <br/>
+    <button type="button" style="width: 100px; height: 50px; background-color: rgb(196,38,38)" onclick="op('brake')">停</button>
+</div>
 </body>
 </html>
 

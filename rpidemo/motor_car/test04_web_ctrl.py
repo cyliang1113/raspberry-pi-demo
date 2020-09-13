@@ -37,4 +37,25 @@ def page():
     return "ok"
 
 
+@route('/left')
+def page():
+    global fwd
+    fwd.left()
+    return "ok"
+
+
+@route('/right')
+def page():
+    global fwd
+    fwd.right()
+    return "ok"
+
+
+@route('/brake')
+def page():
+    global fwd
+    fwd.brake()
+    return "ok"
+
+
 run(host='0.0.0.0', port=8080)
