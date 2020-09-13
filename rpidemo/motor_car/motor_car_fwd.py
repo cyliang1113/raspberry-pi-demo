@@ -17,6 +17,7 @@ class FWD(object):
                  pin_right_motor_en, pin_right_motor_in1, pin_right_motor_in2):
         self.__status = 0  # 状态 0-停止, 1-工作
         GPIO.cleanup()
+        print("GPIO.cleanup()")
         GPIO.setmode(GPIO.BCM)
 
         self.__pin_left_motor_en = pin_left_motor_en

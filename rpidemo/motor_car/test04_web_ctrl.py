@@ -4,6 +4,7 @@ import sys
 sys.path.append("../../")
 from rpidemo.motor_car.motor_car_fwd import FWD
 from bottle import route, run, static_file
+import RPi.GPIO as GPIO
 
 pin_left_motor_en = 13
 pin_left_motor_in1 = 19
@@ -57,5 +58,8 @@ def page():
     fwd.brake()
     return "ok"
 
-
-run(host='0.0.0.0', port=8080)
+try:
+    run(host='0.0.0.0', port=8080)
+finally:
+    GPIO.cleanup()
+    print("GPIO.cleanup()")
