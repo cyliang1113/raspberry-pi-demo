@@ -9,6 +9,7 @@ import RPi.GPIO as GPIO
 
 
 class FWD(object):
+    __duty_full = 80;
 
     # 初始化, 输入引脚标号, GPIO.BCM模式
     def __init__(self, pin_left_motor_en, pin_left_motor_in1, pin_left_motor_in2,
@@ -40,21 +41,21 @@ class FWD(object):
 
     # 向前
     def forward(self):
-        self.__pwd_left_motor_en.ChangeDutyCycle(100)
+        self.__pwd_left_motor_en.ChangeDutyCycle(FWD.__duty_full)
         GPIO.output(self.__pin_left_motor_in1, True)
         GPIO.output(self.__pin_left_motor_in2, False)
 
-        self.__pwd_right_motor_en.ChangeDutyCycle(100)
+        self.__pwd_right_motor_en.ChangeDutyCycle(FWD.__duty_full)
         GPIO.output(self.__pin_right_motor_in1, True)
         GPIO.output(self.__pin_right_motor_in2, False)
 
     # 向后
     def back(self):
-        self.__pwd_left_motor_en.ChangeDutyCycle(100)
+        self.__pwd_left_motor_en.ChangeDutyCycle(FWD.__duty_full)
         GPIO.output(self.__pin_left_motor_in1, False)
         GPIO.output(self.__pin_left_motor_in2, True)
 
-        self.__pwd_right_motor_en.ChangeDutyCycle(100)
+        self.__pwd_right_motor_en.ChangeDutyCycle(FWD.__duty_full)
         GPIO.output(self.__pin_right_motor_in1, False)
         GPIO.output(self.__pin_right_motor_in2, True)
 
